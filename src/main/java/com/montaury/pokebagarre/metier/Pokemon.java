@@ -1,6 +1,8 @@
 package com.montaury.pokebagarre.metier;
 
 public class Pokemon {
+
+  // Final : attribut set à la construction de l'objet. Ne peut plus être modifié par la suite (sorte de constante)
   private final String nom;
   private final String urlImage;
   private final Stats stats;

@@ -6,6 +6,7 @@ import com.montaury.pokebagarre.webapi.PokeBuildApi;
 import java.util.concurrent.CompletableFuture;
 
 public class Bagarre {
+  // Final : attribut set à la construction de l'objet. Ne peut plus être modifié par la suite (sorte de constante)
   public final PokeBuildApi webApi;
 
   public Bagarre() {
