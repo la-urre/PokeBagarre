@@ -1,3 +1,10 @@
+/**
+ * @file : PokemonTest.java
+ * @author : Samuel HENTRICS LOISTINE
+ * @date : 23/02/2023
+ * @brief : Permet de faire des tests unitaires automatisés avec Junit
+ */
+
 package com.montaury.pokebagarre.metier;
 
 import org.junit.jupiter.api.Assertions;
@@ -21,9 +28,11 @@ class PokemonTest {
 
         // WHEN
         boolean resultat = pokemon1.estVainqueurContre(pokemon2);
+        boolean resultat2 = pokemon2.estVainqueurContre(pokemon1);
 
         // THEN
         Assertions.assertEquals(true, resultat);
+        Assertions.assertEquals(true, resultat2);
     }
     @Test
     public void joueur1GagneAttaque(){
@@ -32,9 +41,11 @@ class PokemonTest {
 
         // WHEN
         boolean resultat = pokemon1.estVainqueurContre(pokemon2);
+        boolean resultat2 = pokemon2.estVainqueurContre(pokemon1);
 
         // THEN
         Assertions.assertEquals(true, resultat);
+        Assertions.assertEquals(false, resultat2);
     }
 
     @Test
@@ -44,9 +55,11 @@ class PokemonTest {
 
         // WHEN
         boolean resultat = pokemon1.estVainqueurContre(pokemon2);
+        boolean resultat2 = pokemon2.estVainqueurContre(pokemon1);
 
         // THEN
         Assertions.assertEquals(true, resultat);
+        Assertions.assertEquals(false, resultat2);
     }
 
     @Test
@@ -56,9 +69,11 @@ class PokemonTest {
 
         // WHEN
         boolean resultat = pokemon1.estVainqueurContre(pokemon2);
+        boolean resultat2 = pokemon2.estVainqueurContre(pokemon1);
 
         // THEN
         Assertions.assertEquals(false, resultat);
+        Assertions.assertEquals(true, resultat2);
     }
 
     @Test
@@ -68,9 +83,11 @@ class PokemonTest {
 
         // WHEN
         boolean resultat = pokemon1.estVainqueurContre(pokemon2);
+        boolean resultat2 = pokemon2.estVainqueurContre(pokemon1);
 
         // THEN
         Assertions.assertEquals(false, resultat);
+        Assertions.assertEquals(true, resultat2);
     }
 
 }
