@@ -11,6 +11,7 @@ public class Pokemon {
     this.stats = stats;
   }
 
+
   public String getNom() {
     return nom;
   }

@@ -1,7 +1,9 @@
 plugins {
   id 'application'
   id 'org.openjfx.javafxplugin' version '0.0.13'
+  id 'jacoco'
 }
+
 
 group 'com.montaury'
 version '0.1-SNAPSHOT'
@@ -31,4 +33,9 @@ java {
   }
 }
 
+
 mainClassName = 'com.montaury.pokebagarre.Main'
+
+jacocoTestReport {
+  dependsOn test
+}
