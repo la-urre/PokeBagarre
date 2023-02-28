@@ -7,7 +7,12 @@
 
 name: TitouCoch/PokeBagarre
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+      - tp3
+      
 permissions:
   contents: read
 
