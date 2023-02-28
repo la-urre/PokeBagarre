@@ -24,7 +24,7 @@ jobs:
         distribution: 'temurin'
     - name: Run tests
       run: .\gradlew.bat test 
-    - name: Run tests
+    - name: Run tests and build
       run: .\gradlew.bat build
 
       
