@@ -1,4 +1,4 @@
-package com.montaury.pokebagarre.metier;
+ package com.montaury.pokebagarre.metier;
 
 import com.montaury.pokebagarre.erreurs.ErreurMemePokemon;
 import com.montaury.pokebagarre.erreurs.ErreurPokemonNonRenseigne;
