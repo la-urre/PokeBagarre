@@ -16,6 +16,6 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./gradlew.bat build
     - name: Run Tests
-      run: ./gradlew test
+      run: ./gradlew.bat test
