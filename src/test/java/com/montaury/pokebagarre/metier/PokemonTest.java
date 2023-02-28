@@ -4,6 +4,8 @@ import com.montaury.pokebagarre.fixtures.ConstructeurDePokemon;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.api.Assertions;
+
+import static com.montaury.pokebagarre.fixtures.ConstructeurDePokemon.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
@@ -12,14 +14,12 @@ class PokemonTest {
 @Test
     void lePremierEstPlusFort(){
     // Given
-    Pokemon premierPokemon = ConstructeurDePokemon
-            .unPokemon()
+    Pokemon premierPokemon = unPokemon()
             .avecAttaque(40)
             .avecDefense(50)
             .construire();
 
-    Pokemon deuxiemePokemon = ConstructeurDePokemon
-            .unPokemon()
+    Pokemon deuxiemePokemon = unPokemon()
             .avecAttaque(30)
             .avecDefense(40)
             .construire();
@@ -34,16 +34,12 @@ class PokemonTest {
 @Test
     void leSecondEstPlusFort(){
         // Given
-        Pokemon premierPokemon = ConstructeurDePokemon
-                .unPokemon()
+        var premierPokemon = unPokemon()
                 .avecAttaque(40)
-                .avecDefense(50)
                 .construire();
 
-        Pokemon deuxiemePokemon = ConstructeurDePokemon
-                .unPokemon()
+        var deuxiemePokemon = unPokemon()
                 .avecAttaque(60)
-                .avecDefense(40)
                 .construire();
 
         // When
@@ -57,15 +53,11 @@ class PokemonTest {
     void lePremierAUneMeilleureDefense(){
 
         //Given
-        Pokemon premierPokemon = ConstructeurDePokemon
-                .unPokemon()
-                .avecAttaque(50)
+        var premierPokemon = unPokemon()
                 .avecDefense(50)
                 .construire();
 
-        Pokemon deuxiemePokemon = ConstructeurDePokemon
-                .unPokemon()
-                .avecAttaque(50)
+        var deuxiemePokemon = unPokemon()
                 .avecDefense(40)
                 .construire();
 
@@ -82,15 +74,11 @@ class PokemonTest {
     void leSecondAUneMeilleureDefense(){
 
         //Given
-        Pokemon premierPokemon = ConstructeurDePokemon
-                .unPokemon()
-                .avecAttaque(50)
+        var premierPokemon = unPokemon()
                 .avecDefense(50)
                 .construire();
 
-        Pokemon deuxiemePokemon = ConstructeurDePokemon
-                .unPokemon()
-                .avecAttaque(50)
+        var deuxiemePokemon = unPokemon()
                 .avecDefense(60)
                 .construire();
 
@@ -105,14 +93,12 @@ class PokemonTest {
     @Test
     void lePremierRenseigneGagne(){
         //Given
-        Pokemon premierPokemon = ConstructeurDePokemon
-                .unPokemon()
+        var premierPokemon = unPokemon()
                 .avecAttaque(50)
                 .avecDefense(50)
                 .construire();
 
-        Pokemon deuxiemePokemon = ConstructeurDePokemon
-                .unPokemon()
+        var deuxiemePokemon = unPokemon()
                 .avecAttaque(50)
                 .avecDefense(50)
                 .construire();
