@@ -31,6 +31,11 @@ public class EcranSaisie {
     btn.setText("Bagarre!");
     btn.setOnAction(event -> traiterClicBouton());
 
+/*
+    var btnTest = new Button();
+    btnTest.setText("Log les test!");
+    btnTest.setOnAction(event -> traiterClicBoutonTest());
+  */
     var root = new VBox();
     root.setAlignment(Pos.BASELINE_CENTER);
     root.setSpacing(5);
@@ -55,13 +60,18 @@ public class EcranSaisie {
     root.getChildren().add(inviteNomPokemon2);
     root.getChildren().add(nomPokemon2);
     root.getChildren().add(btn);
+    //root.getChildren().add(btnTest);
     root.getChildren().add(progressIndicator);
     root.getChildren().add(labelErreur);
     root.getChildren().add(labelResultat);
     root.getChildren().add(imageVainqueur);
     return new Scene(root, 450, 300);
   }
+  /*
+  private void traiterClicBoutonTest() {
+    System.out.println("Lancement des tests");
 
+  }*/
   private void traiterClicBouton() {
     labelErreur.setText("");
     labelResultat.setText("");
@@ -79,6 +89,10 @@ public class EcranSaisie {
       // la bagarre se fait de manière asynchrone pour ne pas bloquer la UI
       new Bagarre().demarrer(nomPremierPokemon, nomSecondPokemon)
         .whenComplete(this::terminerBagarre);
+      
+
+
+
     } catch (ErreurBagarre e) {
       labelErreur.setText("Erreur: " + e.getMessage());
     }
