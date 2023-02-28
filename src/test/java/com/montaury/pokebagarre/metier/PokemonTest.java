@@ -25,7 +25,7 @@ class PokemonTest {
             .construire();
 
     // When
-    boolean premierPokemonEstPlusFort = premierPokemon.getStats().getAttaque() > deuxiemePokemon.getStats().getAttaque();
+    boolean premierPokemonEstPlusFort = premierPokemon.estVainqueurContre(deuxiemePokemon);
 
     // Then
     assertTrue(premierPokemonEstPlusFort);
@@ -47,7 +47,7 @@ class PokemonTest {
                 .construire();
 
         // When
-        boolean secondPokemonEstPlusFort = deuxiemePokemon.getStats().getAttaque() > premierPokemon.getStats().getAttaque();
+        boolean secondPokemonEstPlusFort = deuxiemePokemon.estVainqueurContre(premierPokemon);
 
         // Then
         assertTrue(secondPokemonEstPlusFort);
@@ -70,15 +70,11 @@ class PokemonTest {
                 .construire();
 
         //When
-        boolean comparaisonAttaque = premierPokemon.getStats().getAttaque() > deuxiemePokemon.getStats().getAttaque();
-        boolean premierPlusFort = premierPokemon.getStats().getDefense() > deuxiemePokemon.getStats().getDefense();
+
+        boolean premierPlusFort = premierPokemon.estVainqueurContre(deuxiemePokemon);
 
         // Then
-        if (comparaisonAttaque){
-            assertTrue(comparaisonAttaque);}
-        else {
             assertTrue(premierPlusFort);
-        }
 
     }
 
@@ -99,15 +95,33 @@ class PokemonTest {
                 .construire();
 
         //When
-        boolean comparaisonAttaque = deuxiemePokemon.getStats().getAttaque() > premierPokemon.getStats().getAttaque();
-        boolean premierPlusFort = deuxiemePokemon.getStats().getDefense() > premierPokemon.getStats().getDefense();
+
+        boolean deuxiemePlusFort = deuxiemePokemon.estVainqueurContre(premierPokemon);
 
         // Then
-        if (comparaisonAttaque){
-            assertTrue(comparaisonAttaque);}
-        else {
-            assertTrue(premierPlusFort);
-        }
-
+            assertTrue(deuxiemePlusFort);
     }
+
+    @Test
+    void lePremierRenseigneGagne(){
+        //Given
+        Pokemon premierPokemon = ConstructeurDePokemon
+                .unPokemon()
+                .avecAttaque(50)
+                .avecDefense(50)
+                .construire();
+
+        Pokemon deuxiemePokemon = ConstructeurDePokemon
+                .unPokemon()
+                .avecAttaque(50)
+                .avecDefense(50)
+                .construire();
+
+        //When
+        boolean premierPlusFort = premierPokemon.estVainqueurContre(deuxiemePokemon);
+
+        // Then
+        assertTrue(premierPlusFort);
+    }
+
 }
