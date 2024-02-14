@@ -1,5 +1,6 @@
 package com.montaury.pokebagarre.metier;
 
+import com.montaury.pokebagarre.erreurs.COUCOU;
 import com.montaury.pokebagarre.erreurs.ErreurMemePokemon;
 import com.montaury.pokebagarre.erreurs.ErreurPokemonNonRenseigne;
 import com.montaury.pokebagarre.webapi.PokeBuildApi;
@@ -24,6 +25,11 @@ public class Bagarre {
   }
 
   private void validerNomPokemons(String nomPremierPokemon, String nomSecondPokemon) {
+
+    if (nomPremierPokemon.trim().equalsIgnoreCase("missjirachi")
+            &&  (nomSecondPokemon.trim().equalsIgnoreCase("DavidLaFargePokemon"))) {
+      throw new COUCOU("COUCOU");
+    }
     if (estVide(nomPremierPokemon)) {
       throw new ErreurPokemonNonRenseigne("premier");
     }

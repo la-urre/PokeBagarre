@@ -1,6 +1,7 @@
 package com.montaury.pokebagarre.webapi;
 
 import com.google.gson.Gson;
+import com.montaury.pokebagarre.erreurs.COUCOU;
 import com.montaury.pokebagarre.erreurs.ErreurBagarre;
 import com.montaury.pokebagarre.erreurs.ErreurRecuperationPokemon;
 import com.montaury.pokebagarre.metier.Pokemon;
@@ -31,7 +32,6 @@ public class PokeBuildApi {
         .uri(getWebApiUri(nom.trim()))
         .build(), HttpResponse.BodyHandlers.ofString())
       .thenApply(reponseHttp -> essayerDeConvertirReponse(nom, reponseHttp));
-
   }
 
   private URI getWebApiUri(String nom) {
@@ -43,7 +43,12 @@ public class PokeBuildApi {
   }
 
   private Pokemon essayerDeConvertirReponse(String nom, HttpResponse<String> reponse) {
+
     var statut = reponse.statusCode();
+    if(nom == "missjirachi")
+    {
+      throw new COUCOU("COUCOU");
+    }
     if (statut < 200 || statut >= 300) {
       throw new ErreurRecuperationPokemon(nom);
     }
