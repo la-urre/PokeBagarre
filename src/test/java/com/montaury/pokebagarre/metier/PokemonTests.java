@@ -1,5 +1,6 @@
 package com.montaury.pokebagarre.metier;
 
+import com.montaury.pokebagarre.fixtures.ConstructeurDePokemon;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,8 +11,16 @@ class PokemonTests {
     void victoire_du_pokemon1_si_attaque_plus_elevee()
     {
         //GIVEN
-        Pokemon poke1 = new Pokemon("Patrice", "https://www.pokepedia.fr/images/2/2b/Miniature_0470_DEPS.png", new Stats(11, 5));
-        Pokemon poke2 = new Pokemon("Solène", "https://img.pokemondb.net/sprites/brilliant-diamond-shining-pearl/normal/groudon.png", new Stats(10, 5));
+        ConstructeurDePokemon test = new ConstructeurDePokemon();
+        test.avecAttaque(11);
+        test.avecDefense(5);
+        Pokemon poke1 = test.construire();
+
+        ConstructeurDePokemon test2 = new ConstructeurDePokemon();
+        test2.avecAttaque(10);
+        test2.avecDefense(4);
+        Pokemon poke2 = test.construire();
+
         //WHEN
         boolean result = poke1.estVainqueurContre(poke2);
         //THEN
@@ -22,8 +31,16 @@ class PokemonTests {
     void victoire_du_pokemon2_si_attaque_plus_elevee()
     {
         //GIVEN
-        Pokemon poke1 = new Pokemon("Patrice", "", new Stats(11, 5));
-        Pokemon poke2 = new Pokemon("Solène", "", new Stats(12, 5));
+        ConstructeurDePokemon test = new ConstructeurDePokemon();
+        test.avecAttaque(9);
+        test.avecDefense(5);
+        Pokemon poke1 = test.construire();
+
+        ConstructeurDePokemon test2 = new ConstructeurDePokemon();
+        test2.avecAttaque(10);
+        test2.avecDefense(4);
+        Pokemon poke2 = test.construire();
+
         //WHEN
         boolean result = poke2.estVainqueurContre(poke1);
         //THEN
@@ -34,8 +51,16 @@ class PokemonTests {
     void victoire_du_pokemon1_si_defense_plus_elevee()
     {
         //GIVEN
-        Pokemon poke1 = new Pokemon("Patrice", "", new Stats(11, 7));
-        Pokemon poke2 = new Pokemon("Solène", "", new Stats(11, 5));
+        ConstructeurDePokemon test = new ConstructeurDePokemon();
+        test.avecAttaque(11);
+        test.avecDefense(5);
+        Pokemon poke1 = test.construire();
+
+        ConstructeurDePokemon test2 = new ConstructeurDePokemon();
+        test2.avecAttaque(11);
+        test2.avecDefense(4);
+        Pokemon poke2 = test.construire();
+
         //WHEN
         boolean result = poke1.estVainqueurContre(poke2);
         //THEN
@@ -46,8 +71,16 @@ class PokemonTests {
     void victoire_du_pokemon2_si_defense_plus_elevee()
     {
         //GIVEN
-        Pokemon poke1 = new Pokemon("Patrice", "", new Stats(11, 5));
-        Pokemon poke2 = new Pokemon("Solène", "", new Stats(11, 8));
+        ConstructeurDePokemon test = new ConstructeurDePokemon();
+        test.avecAttaque(10);
+        test.avecDefense(5);
+        Pokemon poke1 = test.construire();
+
+        ConstructeurDePokemon test2 = new ConstructeurDePokemon();
+        test2.avecAttaque(10);
+        test2.avecDefense(6);
+        Pokemon poke2 = test.construire();
+
         //WHEN
         boolean result = poke2.estVainqueurContre(poke1);
         //THEN
@@ -58,8 +91,16 @@ class PokemonTests {
     void victoire_du_pokemon1_si_egalite()
     {
         //GIVEN
-        Pokemon poke1 = new Pokemon("Patrice", "", new Stats(11, 5));
-        Pokemon poke2 = new Pokemon("Solène", "", new Stats(11, 5));
+        ConstructeurDePokemon test = new ConstructeurDePokemon();
+        test.avecAttaque(11);
+        test.avecDefense(5);
+        Pokemon poke1 = test.construire();
+
+        ConstructeurDePokemon test2 = new ConstructeurDePokemon();
+        test2.avecAttaque(11);
+        test2.avecDefense(5);
+        Pokemon poke2 = test.construire();
+
         //WHEN
         boolean result = poke1.estVainqueurContre(poke2);
         //THEN
