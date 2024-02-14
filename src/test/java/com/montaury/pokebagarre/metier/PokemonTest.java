@@ -6,6 +6,7 @@ import com.montaury.pokebagarre.metier.Pokemon;
 import com.montaury.pokebagarre.metier.Stats;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.*;
 
 class PokemonTest {
     @Test
@@ -20,7 +21,8 @@ class PokemonTest {
         boolean vainqueur = poke1.estVainqueurContre(poke2);
 
         // THEN
-        assertEquals(true,vainqueur);
+        //assertEquals(true,vainqueur);
+        assertThat(vainqueur).isTrue();
     }
 
     @Test
@@ -32,7 +34,8 @@ class PokemonTest {
         // WHEN
         boolean vainqueur = poke1.estVainqueurContre(poke2);
         // THEN
-        assertEquals(true,vainqueur);
+        //assertEquals(true,vainqueur);
+        assertThat(vainqueur).isTrue();
     }
 
     @Test
@@ -47,7 +50,8 @@ class PokemonTest {
         boolean vainqueur = poke1.estVainqueurContre(poke2);
 
         // THEN
-        assertEquals(true, vainqueur);
+        //assertEquals(true, vainqueur);
+        assertThat(vainqueur).isTrue();
     }
 
     @Test
@@ -59,7 +63,8 @@ class PokemonTest {
         boolean vainqueur = poke1.estVainqueurContre(poke2);
 
         // THEN
-        assertEquals(true, vainqueur);
+        //assertEquals(true, vainqueur);
+        assertThat(vainqueur).isTrue();
     }
 
     @Test
@@ -75,7 +80,8 @@ class PokemonTest {
         boolean vainqueur = poke1.estVainqueurContre(poke2);
 
         // THEN
-        assertEquals(true,vainqueur);
+        //assertEquals(true,vainqueur);
+        assertThat(vainqueur).isTrue();
     }
 
     @Test
@@ -88,6 +94,7 @@ class PokemonTest {
         boolean vainqueur = poke1.estVainqueurContre(poke2);
 
         // THEN
-        assertEquals(true,vainqueur);
+        //assertEquals(true,vainqueur);
+        assertThat(vainqueur).isTrue();
     }
 }
