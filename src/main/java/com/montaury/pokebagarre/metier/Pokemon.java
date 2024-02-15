@@ -30,3 +30,4 @@ public class Pokemon {
       || statsPremier.getAttaque() == statsSecond.getAttaque() && statsPremier.getDefense() >= statsSecond.getDefense();
   }
 }
+
