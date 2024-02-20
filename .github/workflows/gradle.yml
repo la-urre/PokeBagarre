@@ -41,7 +41,7 @@ jobs:
       if: success()
       with :
         name : JUNIT test
-        path : rapportTest
+        path : rapportTest/junit-*.xml
         reporter: java-junit
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
