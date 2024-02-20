@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class PokemonTest {
+class PokemonTest { // Test class for Pokémon.java
     @Test
     void devrait_etre_vainqueur_s_il_a_une_meilleure_attaque() {
         // GIVEN
