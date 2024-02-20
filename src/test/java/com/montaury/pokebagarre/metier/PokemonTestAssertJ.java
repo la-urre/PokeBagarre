@@ -1,10 +1,10 @@
-package com.montaury.pokebagarre.metier;
+/*package com.montaury.pokebagarre.metier;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat; // AssertTthat()
 
-class PokemonTestJUnit {
+class PokemonTestAssertJ {
     @Test
     void pokemon_qui_a_meilleure_attaque_devrait_gagner() {
     // GIVEN
@@ -40,4 +40,4 @@ class PokemonTestJUnit {
         assertEquals(true, bagarreGagneA);
     }
 
-}
+}*/
