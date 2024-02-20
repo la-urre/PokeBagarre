@@ -46,7 +46,7 @@ jobs:
     #
     # - name: Build with Gradle 8.5
     #   run: gradle build
-
+  
   dependency-submission:
 
     runs-on: ubuntu-latest
@@ -60,6 +60,18 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
+    - uses: actions/upload-artifact@v4
+      if: success() || failure()        # run this step even if previous step failed
+      with:
+        name: test-results
+        path: jest-junit.xml
+
+    - uses: dorny/test-reporter@v1.8.0
+      with:
+        artifact: test-results            # artifact name
+        name: JEST Tests                  # Name of the check run which will be created
+        path: '*.xml'                     # Path to test results (inside artifact .zip)
+        reporter: jest-junit              # Format of test results
 
     # Generates and submits a dependency graph, enabling Dependabot Alerts for all project dependencies.
     # See: https://github.com/gradle/actions/blob/main/dependency-submission/README.md
