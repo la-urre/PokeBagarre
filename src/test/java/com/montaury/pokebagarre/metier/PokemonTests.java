@@ -23,6 +23,13 @@ class PokemonTests {
     }
 
     @Test
+    void victoire_du_pokemon1_si_attaque_plus_elevee_ASSERTJ()
+    {
+        //GIVEN
+        assertThat(ConstructeurDePokemon.unPokemon().avecAttaque(12).construire().estVainqueurContre(ConstructeurDePokemon.unPokemon().avecAttaque(11).construire()));
+    }
+
+    @Test
     void victoire_du_pokemon2_si_attaque_plus_elevee()
     {
         //GIVEN
