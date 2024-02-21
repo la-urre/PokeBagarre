@@ -40,7 +40,7 @@ jobs:
       uses : dorny/test-reporter@v1.8.0
       with :
         name : JUNIT test
-        path : "rapportTest/*.xml"
+        path : rapportTest/*.xml
         reporter: jest-junit
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
