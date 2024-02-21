@@ -14,7 +14,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build-test:
 
     runs-on: windows-latest
     permissions:
@@ -38,11 +38,10 @@ jobs:
 
     - name : Test_resume
       uses : dorny/test-reporter@v1.8.0
-      if: success()
       with :
         name : JUNIT test
-        path : rapportTest/junit-*.xml
-        reporter: java-junit
+        path : rapportTest/*.xml
+        reporter: jest-junit
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
     # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.
