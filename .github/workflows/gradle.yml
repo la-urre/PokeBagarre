@@ -14,7 +14,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  build-test:
 
     runs-on: windows-latest
     permissions:
@@ -38,7 +38,6 @@ jobs:
 
     - name : Test_resume
       uses : dorny/test-reporter@v1.8.0
-      if: success()
       with :
         name : JUNIT test
         path : rapportTest/junit-test.xml
