@@ -38,6 +38,9 @@ jobs:
     - name: Build with Gradle Wrapper
       run: ./gradlew build
 
+    - name: Test avec Gradle Wrapper
+      run: ./gradlew test
+
     - name : Test_resume
       uses : dorny/test-reporter@v1.8.0
       with :
