@@ -37,6 +37,13 @@ jacocoTestCoverageVerification {
   }
 }
 
+jacocoTestReport {
+  reports {
+    xml.enabled(true)
+    outputs.dir("$buildDir/reports/jacoco_results")
+  }
+}
+
 dependencies {
   implementation 'com.google.code.gson:gson:2.10'
   testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
