@@ -1,6 +1,7 @@
 plugins {
   id 'application'
   id 'org.openjfx.javafxplugin' version '0.0.13'
+  id 'jacoco'
 }
 
 group 'com.montaury'
@@ -17,6 +18,23 @@ javafx {
 
 test {
   useJUnitPlatform()
+  reports {
+    outputs.dir("$buildDir/test-results/test")
+  }
+}
+
+jacoco {
+  toolVersion = "0.8.11"
+}
+
+jacocoTestCoverageVerification {
+  violationRules {
+    rule {
+      limit {
+        minimum = 0.1
+      }
+    }
+  }
 }
 
 dependencies {

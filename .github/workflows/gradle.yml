@@ -9,16 +9,18 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ "main" ]
+    branches : ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches : ["main"]
 
 jobs:
-  build:
+  build-test:
 
     runs-on: windows-latest
     permissions:
       contents: read
+      actions : read
+      checks : write
 
     steps:
     - uses: actions/checkout@v4
@@ -35,6 +37,16 @@ jobs:
 
     - name: Build with Gradle Wrapper
       run: ./gradlew build
+
+    - name: Test avec Gradle Wrapper
+      run: ./gradlew test
+
+    - name : Test_resume
+      uses : dorny/test-reporter@v1.8.0
+      with :
+        name : JUNIT test
+        path : rapportTest/*.xml
+        reporter: java-junit
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
     # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.
@@ -65,3 +77,4 @@ jobs:
     # See: https://github.com/gradle/actions/blob/main/dependency-submission/README.md
     - name: Generate and submit dependency graph
       uses: gradle/actions/dependency-submission@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
+
