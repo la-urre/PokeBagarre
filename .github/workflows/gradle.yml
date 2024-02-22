@@ -41,11 +41,18 @@ jobs:
     - name: Test avec Gradle Wrapper
       run: ./gradlew test
 
+    - name: Upload Test Results
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-results
+        path: build/test-results/test
+
+
     - name : Test_resume
       uses : dorny/test-reporter@v1.8.0
       with :
         name : JUNIT test
-        path : rapportTest/*.xml
+        path : build/test-results/test/*.xml
         reporter: java-junit
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
@@ -75,6 +82,6 @@ jobs:
 
     # Generates and submits a dependency graph, enabling Dependabot Alerts for all project dependencies.
     # See: https://github.com/gradle/actions/blob/main/dependency-submission/README.md
-    - name: Generate and submit dependency graph
-      uses: gradle/actions/dependency-submission@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
+    #- name: Generate and submit dependency graph
+      #uses: gradle/actions/dependency-submission@417ae3ccd767c252f5661f1ace9f835f9654f2b5 # v3.1.0
 
