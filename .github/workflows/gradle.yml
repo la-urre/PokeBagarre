@@ -47,14 +47,37 @@ jobs:
         name: test-results
         path: build/test-results/test
 
-
-    - name : Test_resume
+    - name : Resume des tests
       uses : dorny/test-reporter@v1.8.0
       with :
         name : JUNIT test
         path : build/test-results/test/*.xml
         reporter: java-junit
 
+    - name: JaCoCo Code Coverage Report
+      id: jacoco_reporter
+      uses: PavanMudigonda/jacoco-reporter@v4.9
+      with:
+          coverage_results_path: jacoco-report/test.xml
+          coverage_report_name: Coverage
+          coverage_report_title: JaCoCo
+          skip_check_run: false
+          minimum_coverage: 10
+          fail_below_threshold: false
+          publish_only_summary: false
+      
+      # Publish Coverage Job Summary  # Optional
+    - name: Add Coverage Job Summary
+      run: echo "${{ steps.jacoco_reporter.outputs.coverageSummary }}" >> $GITHUB_STEP_SUMMARY
+          
+      # uploads the coverage-report.md artifact  # Optional
+
+    - name: Upload Code Coverage Artifacts
+      uses: actions/upload-artifact@v2
+      with:
+          name: code-coverage-report-markdown
+          path: "*/coverage-results.md"
+          retention-days: 1  
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
     # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.
     #
