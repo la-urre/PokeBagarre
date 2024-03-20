@@ -17,6 +17,9 @@ javafx {
 
 test {
   useJUnitPlatform()
+          reports{
+            outputs.dir("$buildDir/test-results/test")
+          }
 }
 
 dependencies {
