@@ -11,12 +11,15 @@ repositories {
 }
 
 javafx {
-  version = "11"
+  version = "19"
   modules = ['javafx.controls']
 }
 
 test {
   useJUnitPlatform()
+          reports{
+            outputs.dir("$buildDir/test-results/test")
+          }
 }
 
 dependencies {
