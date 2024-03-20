@@ -44,6 +44,13 @@ class PokemonTests {
     }
 
     @Test
+    void victoire_du_pokemon2_si_attaque_plus_elevee_ASSERTJ()
+    {
+        //GIVEN
+        assertThat(ConstructeurDePokemon.unPokemon().avecAttaque(12).construire().estVainqueurContre(ConstructeurDePokemon.unPokemon().avecAttaque(11).construire()));
+    }
+
+    @Test
     void victoire_du_pokemon1_si_defense_plus_elevee()
     {
         //GIVEN
@@ -54,6 +61,12 @@ class PokemonTests {
         boolean result = poke1.estVainqueurContre(poke2);
         //THEN
         assert result = true : "C'est cool";
+    }
+
+    @Test
+    void victoire_du_pokemon1_si_defense_plus_elevee_ASSERTJ()
+    {
+        assertThat(ConstructeurDePokemon.unPokemon().avecDefense(12).construire().estVainqueurContre(ConstructeurDePokemon.unPokemon().avecDefense(11).construire()));
     }
 
     @Test
@@ -70,6 +83,12 @@ class PokemonTests {
     }
 
     @Test
+    void victoire_du_pokemon2_si_defense_plus_elevee_ASSERTJ()
+    {
+        assertThat(ConstructeurDePokemon.unPokemon().avecDefense(12).construire().estVainqueurContre(ConstructeurDePokemon.unPokemon().avecDefense(11).construire()));
+    }
+
+    @Test
     void victoire_du_pokemon1_si_egalite()
     {
         //GIVEN
@@ -81,5 +100,12 @@ class PokemonTests {
         boolean result = poke1.estVainqueurContre(poke2);
         //THEN
         assert result = true : "C'est cool";
+    }
+
+    @Test
+    void victoire_du_pokemon1_si_egalite_ASSERTJ()
+    {
+        //GIVEN
+        assertThat(ConstructeurDePokemon.unPokemon().avecAttaque(12).construire().estVainqueurContre(ConstructeurDePokemon.unPokemon().avecAttaque(12).construire()));
     }
 }
