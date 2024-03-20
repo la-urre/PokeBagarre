@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+//tests
 class PokemonTests {
     @Test
     void doit_renvoyer_le_pokemon1_avec_plus_grande_attaque(){
